@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3D Store - חנות הדפסות תלת מימד</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="index.html">
+      <img src="images/logo.png" alt="3D Store" class="site-logo" onerror="this.style.display='none'" />
+      <span>3D Store</span>
+    </a>
+    <a class="cart-link" href="cart.html" aria-label="עגלת קניות">
+      🛒
+      <span id="cart-badge" class="cart-badge hidden">0</span>
+    </a>
+  </header>
+
+  <main>
+    <h1 class="page-title">🚀 הדמויות והצעצועים שלנו</h1>
+    <p>בחרו את הדמות או הצעצוע שהכי אהבתם!</p>
+    <div id="gallery-grid" class="gallery-grid"></div>
+    <p id="empty-state" class="empty-state hidden">עדיין אין מוצרים בגלריה, חזרו בקרוב!</p>
+  </main>
+
+  <footer>
+    <a href="admin.html">כניסת בעל החנות</a>
+  </footer>
+
+  <script src="js/cart.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>

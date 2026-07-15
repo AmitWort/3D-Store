@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>מוצר - 3D Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="index.html">
+      <img src="images/logo.png" alt="3D Store" class="site-logo" onerror="this.style.display='none'" />
+      <span>3D Store</span>
+    </a>
+    <a class="cart-link" href="cart.html" aria-label="עגלת קניות">
+      🛒
+      <span id="cart-badge" class="cart-badge hidden">0</span>
+    </a>
+  </header>
+
+  <main>
+    <a href="index.html">&larr; חזרה לגלריה</a>
+    <div id="product-container" class="product-detail" style="margin-top: 16px;"></div>
+  </main>
+
+  <script src="js/cart.js"></script>
+  <script src="js/product.js"></script>
+</body>
+</html>

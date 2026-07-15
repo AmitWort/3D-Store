@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>סיכום הזמנה - 3D Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="index.html">
+      <img src="images/logo.png" alt="3D Store" class="site-logo" onerror="this.style.display='none'" />
+      <span>3D Store</span>
+    </a>
+    <a class="cart-link" href="cart.html" aria-label="עגלת קניות">
+      🛒
+      <span id="cart-badge" class="cart-badge hidden">0</span>
+    </a>
+  </header>
+
+  <main>
+    <h1 class="page-title">🛒 סיכום הזמנה</h1>
+    <a href="index.html">&larr; המשך בקניות</a>
+
+    <p id="cart-empty" class="empty-state hidden">העגלה שלכם ריקה כרגע.</p>
+
+    <div id="cart-table-wrap" style="margin-top: 20px;"></div>
+
+    <section id="checkout-form-section" class="form-card">
+      <h2>פרטים למשלוח ההזמנה</h2>
+      <form id="checkout-form">
+        <div class="form-field">
+          <label for="fullName">שם מלא <span class="required">*</span></label>
+          <input type="text" id="fullName" name="fullName" required />
+        </div>
+        <div class="form-field">
+          <label for="phone">טלפון <span class="required">*</span></label>
+          <input type="tel" id="phone" name="phone" required />
+        </div>
+        <div class="form-field">
+          <label for="address">כתובת</label>
+          <input type="text" id="address" name="address" />
+        </div>
+        <div class="form-field">
+          <label for="notes">הערות</label>
+          <textarea id="notes" name="notes" rows="3"></textarea>
+        </div>
+        <div id="order-message" class="message hidden"></div>
+        <button type="submit" class="btn btn-primary">שליחת הזמנה</button>
+      </form>
+    </section>
+
+    <section id="order-success" class="form-card hidden">
+      <h2>תודה רבה! 🎉</h2>
+      <p>ההזמנה שלכם התקבלה בהצלחה.</p>
+      <p>מספר הזמנה: <strong id="order-id-display"></strong></p>
+      <a class="btn btn-secondary" href="index.html">חזרה לגלריה</a>
+    </section>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>
