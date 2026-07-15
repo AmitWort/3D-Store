@@ -78,11 +78,12 @@ async function handleAddProduct(request, env) {
   const ext = match ? (match[1] === 'jpeg' ? 'jpg' : match[1]) : 'jpg';
   const rawBase64 = match ? match[2] : data.imageBase64;
   const id = crypto.randomUUID();
-  const imagePath = `${IMAGES_DIR}/${id}.${ext}`;
+  const imageRepoPath = `${IMAGES_DIR}/${id}.${ext}`; // נתיב בריפו (עם docs/) - לשימוש מול GitHub API בלבד
+  const imageSitePath = `images/${id}.${ext}`; // נתיב יחסי לאתר עצמו (docs/ הוא שורש האתר) - זה מה שנשמר ב-products.json
 
-  await githubPutBinary(env, imagePath, rawBase64, `הוספת תמונה למוצר: ${name}`);
+  await githubPutBinary(env, imageRepoPath, rawBase64, `הוספת תמונה למוצר: ${name}`);
 
-  const product = { id, name, price, image: imagePath };
+  const product = { id, name, price, image: imageSitePath };
   await updateProductsJson(env, (products) => {
     products.push(product);
     return products;
