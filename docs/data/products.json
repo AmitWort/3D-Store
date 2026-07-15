@@ -10,5 +10,11 @@
     "name": "קליקר",
     "price": 2,
     "image": "images/e0bb6d6f-28e9-4083-bda9-5db50595c740.jpg"
+  },
+  {
+    "id": "6f3e2b85-fb5d-4b3b-9c60-38efe2397f6a",
+    "name": "קליקר גבינה",
+    "price": 4,
+    "image": "images/6f3e2b85-fb5d-4b3b-9c60-38efe2397f6a.jpg"
   }
 ]
