@@ -2,14 +2,21 @@
 // לפני ההדבקה: עדכן את חמשת הקבועים למטה. אחרי ה-deploy: הגדר 4 secrets דרך Settings → Variables
 // (GITHUB_TOKEN, ADMIN_PASSWORD, SESSION_SECRET, RESEND_API_KEY) — ראה README.md.
 
-const GITHUB_OWNER = 'amitwort'; //שם המשתמש/ארגון שלך -GitHub
-const GITHUB_REPO = '3D-Store'; 
+const GITHUB_OWNER = 'YOUR_GITHUB_USERNAME'; // TODO: שם המשתמש/ארגון שלך ב-GitHub
+const GITHUB_REPO = '3DStoreKids'; // TODO: שם הריפו (אם שינית אותו)
 const GITHUB_BRANCH = 'main';
-const OWNER_EMAIL = 'amit.wort@gmail.com'; //המייל של בעל החנות שיקבל התראות
-const ALLOWED_ORIGIN = 'https://amitwort.github.io'; // TODO: כתובת ה-GitHub Pages (בלי סלאש בסוף)
+const OWNER_EMAIL = 'owner@example.com'; // TODO: המייל של בעל החנות שיקבל התראות
+const ALLOWED_ORIGIN = 'https://YOUR_GITHUB_USERNAME.github.io'; // TODO: כתובת ה-GitHub Pages (בלי סלאש בסוף)
 
 const SESSION_TTL_MS = 6 * 60 * 60 * 1000; // 6 שעות תוקף לחיבור אדמין
 const API_BASE = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}`;
+
+// האתר מוגש ע"י GitHub Pages מתוך תיקיית docs/ בלבד (Settings → Pages → Folder: /docs),
+// לכן כל קובץ שהאתר קורא בעצמו (products.json, תמונות מוצרים) חייב לשבת בתוך docs/
+// כדי שיהיה נגיש בפועל דרך הכתובת הציבורית. orders.csv נשאר בכוונה בשורש הריפו,
+// מחוץ ל-docs/, כדי שלא יוגש פומבית דרך האתר (רק בעל הריפו רואה אותו ב-GitHub).
+const PRODUCTS_PATH = 'docs/data/products.json';
+const IMAGES_DIR = 'docs/images';
 
 export default {
   async fetch(request, env) {
@@ -71,7 +78,7 @@ async function handleAddProduct(request, env) {
   const ext = match ? (match[1] === 'jpeg' ? 'jpg' : match[1]) : 'jpg';
   const rawBase64 = match ? match[2] : data.imageBase64;
   const id = crypto.randomUUID();
-  const imagePath = `images/${id}.${ext}`;
+  const imagePath = `${IMAGES_DIR}/${id}.${ext}`;
 
   await githubPutBinary(env, imagePath, rawBase64, `הוספת תמונה למוצר: ${name}`);
 
@@ -106,7 +113,7 @@ async function handleOrder(request, env) {
   if (!phone) return { status: 400, body: { error: 'טלפון הוא שדה חובה' } };
 
   // מחיר וכמות נגזרים מחדש מ-products.json בצד השרת - לא סומכים על מה שהגיע מהלקוח
-  const productsFile = await githubGetFile(env, 'data/products.json');
+  const productsFile = await githubGetFile(env, PRODUCTS_PATH);
   const products = productsFile ? JSON.parse(productsFile.content) : [];
   const productMap = new Map(products.map((p) => [p.id, p]));
 
@@ -181,11 +188,11 @@ async function githubPutBinary(env, path, base64Content, message) {
 
 async function updateProductsJson(env, mutateFn, message) {
   for (let attempt = 0; attempt < 2; attempt++) {
-    const file = await githubGetFile(env, 'data/products.json');
+    const file = await githubGetFile(env, PRODUCTS_PATH);
     const products = file ? JSON.parse(file.content) : [];
     const updated = mutateFn(products);
     try {
-      await githubPutText(env, 'data/products.json', JSON.stringify(updated, null, 2), message, file ? file.sha : undefined);
+      await githubPutText(env, PRODUCTS_PATH, JSON.stringify(updated, null, 2), message, file ? file.sha : undefined);
       return updated;
     } catch (err) {
       if (err.status === 409 && attempt === 0) continue;
