@@ -2,11 +2,11 @@
 // לפני ההדבקה: עדכן את חמשת הקבועים למטה. אחרי ה-deploy: הגדר 4 secrets דרך Settings → Variables
 // (GITHUB_TOKEN, ADMIN_PASSWORD, SESSION_SECRET, RESEND_API_KEY) — ראה README.md.
 
-const GITHUB_OWNER = 'YOUR_GITHUB_USERNAME'; // TODO: שם המשתמש/ארגון שלך ב-GitHub
-const GITHUB_REPO = '3DStoreKids'; // TODO: שם הריפו (אם שינית אותו)
+const GITHUB_OWNER = 'amitwort'; //שם המשתמש/ארגון שלך -GitHub
+const GITHUB_REPO = '3D-Store'; 
 const GITHUB_BRANCH = 'main';
-const OWNER_EMAIL = 'owner@example.com'; // TODO: המייל של בעל החנות שיקבל התראות
-const ALLOWED_ORIGIN = 'https://YOUR_GITHUB_USERNAME.github.io'; // TODO: כתובת ה-GitHub Pages (בלי סלאש בסוף)
+const OWNER_EMAIL = 'amit.wort@gmail.com'; //המייל של בעל החנות שיקבל התראות
+const ALLOWED_ORIGIN = 'https://amitwort.github.io'; // TODO: כתובת ה-GitHub Pages (בלי סלאש בסוף)
 
 const SESSION_TTL_MS = 6 * 60 * 60 * 1000; // 6 שעות תוקף לחיבור אדמין
 const API_BASE = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}`;
