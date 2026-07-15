@@ -16,5 +16,11 @@
     "name": "קליקר גבינה",
     "price": 4,
     "image": "images/6f3e2b85-fb5d-4b3b-9c60-38efe2397f6a.jpg"
+  },
+  {
+    "id": "a48cd34c-7247-4b02-8d24-b712b433aa92",
+    "name": "ידית הילוכים",
+    "price": 4,
+    "image": "images/a48cd34c-7247-4b02-8d24-b712b433aa92.jpg"
   }
 ]
