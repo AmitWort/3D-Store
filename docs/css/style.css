@@ -50,6 +50,26 @@ html, body {
   display: inline-block;
 }
 
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.hero-logo {
+  height: 150px;
+  width: auto;
+  border-radius: 18px;
+  filter: drop-shadow(0 0 28px rgba(58, 160, 255, 0.35));
+}
+
+@media (max-width: 480px) {
+  .hero-logo { height: 100px; }
+}
+
 a { color: inherit; text-decoration: none; }
 
 .site-header {
