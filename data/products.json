@@ -10,5 +10,11 @@
     "name": "מעמד לטלפון",
     "price": 6,
     "image": "images/91c5e810-c356-410f-8ba9-65b5e73043d7.jpg"
+  },
+  {
+    "id": "3abaa206-36c3-47bc-9d7c-0a4583b4f745",
+    "name": "מעמד לטלפון",
+    "price": 6,
+    "image": "images/3abaa206-36c3-47bc-9d7c-0a4583b4f745.jpg"
   }
 ]
