@@ -22,5 +22,11 @@
     "name": "ידית הילוכים",
     "price": 4,
     "image": "images/a48cd34c-7247-4b02-8d24-b712b433aa92.jpg"
+  },
+  {
+    "id": "84d62931-0fa4-4888-bcbc-d2a9a77eccfb",
+    "name": "קוביות",
+    "price": 1,
+    "image": "images/84d62931-0fa4-4888-bcbc-d2a9a77eccfb.jpg"
   }
 ]
