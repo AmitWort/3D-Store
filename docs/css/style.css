@@ -60,9 +60,9 @@ html, body {
 }
 
 .hero-logo {
-  height: 150px;
+  height: 50px;
   width: auto;
-  border-radius: 18px;
+  border-radius: 10px;
   filter: drop-shadow(0 0 28px rgba(58, 160, 255, 0.35));
 }
 
