@@ -52,5 +52,11 @@
     "name": "קלף של רונלדו",
     "price": 3,
     "image": "images/841bd833-bf80-4dff-b897-e35abb408574.jpg"
+  },
+  {
+    "id": "5d34b114-af77-443f-a925-3da7a965499f",
+    "name": "2 קלפים של רונלדו- במחיר מבצע",
+    "price": 5,
+    "image": "images/5d34b114-af77-443f-a925-3da7a965499f.jpg"
   }
 ]
