@@ -51,7 +51,13 @@
     "id": "841bd833-bf80-4dff-b897-e35abb408574",
     "name": "קלף של רונלדו",
     "price": 3,
-    "image": "images/841bd833-bf80-4dff-b897-e35abb408574.jpg"
+    "image": "images/841bd833-bf80-4dff-b897-e35abb408574.jpg",
+    "tiers": [
+      {
+        "qty": 2,
+        "price": 5
+      }
+    ]
   },
   {
     "id": "5d34b114-af77-443f-a925-3da7a965499f",
