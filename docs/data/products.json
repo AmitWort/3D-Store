@@ -40,11 +40,5 @@
     "name": "קלף כדורגל",
     "price": 3,
     "image": "images/a64f01bc-93bb-4de6-9e4a-b4fcd9b076a8.jpg"
-  },
-  {
-    "id": "48bbe69b-cec8-4eed-8e0f-4ec7decd4b89",
-    "name": "2 קלפים",
-    "price": 5,
-    "image": "images/48bbe69b-cec8-4eed-8e0f-4ec7decd4b89.jpg"
   }
 ]
