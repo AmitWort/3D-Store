@@ -46,5 +46,11 @@
     "name": "2 קלפים של מסי - במחיר מבצע",
     "price": 5,
     "image": "images/910ee2a4-c384-47d8-a25d-0edd55165a35.jpg"
+  },
+  {
+    "id": "841bd833-bf80-4dff-b897-e35abb408574",
+    "name": "קלף של רונלדו",
+    "price": 3,
+    "image": "images/841bd833-bf80-4dff-b897-e35abb408574.jpg"
   }
 ]
