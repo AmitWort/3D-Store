@@ -40,5 +40,11 @@
     "name": "קלף כדורגל",
     "price": 3,
     "image": "images/a64f01bc-93bb-4de6-9e4a-b4fcd9b076a8.jpg"
+  },
+  {
+    "id": "910ee2a4-c384-47d8-a25d-0edd55165a35",
+    "name": "2 קלפים של מסי - במחיר מבצע",
+    "price": 5,
+    "image": "images/910ee2a4-c384-47d8-a25d-0edd55165a35.jpg"
   }
 ]
