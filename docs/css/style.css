@@ -63,7 +63,7 @@ html, body {
   height: 400px;
   width: auto;
   border-radius: 400px;
-  filter: drop-shadow(0 0 28px rgba(10, 10, 10, 0.35));
+  filter: drop-shadow(0 0 28px rgba(0, 0, 0, 10));
 }
 
 @media (max-width: 480px) {
