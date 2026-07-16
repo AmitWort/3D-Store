@@ -22,7 +22,7 @@ function renderCartPage() {
         <td><img src="${item.image}" alt="${escapeHtml(item.name)}" /></td>
         <td>${escapeHtml(item.name)}</td>
         <td>${item.qty}</td>
-        <td>₪${(item.price * item.qty).toFixed(2)}</td>
+        <td>₪${calcLineTotal(item, item.qty).toFixed(2)}</td>
         <td><button type="button" class="remove-btn" data-remove="${item.id}" aria-label="הסר">✕</button></td>
       </tr>`
     )
