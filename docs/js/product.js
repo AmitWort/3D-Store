@@ -25,16 +25,29 @@ async function loadProduct() {
 
   document.title = `${product.name} - חנות הדפסה תלת מימד`;
 
+  const hasTiers = Array.isArray(product.tiers) && product.tiers.length > 0;
+  const tiersHtml = hasTiers
+    ? `<ul class="tier-list">
+        <li>1 יח' - ₪${Number(product.price).toFixed(2)}</li>
+        ${product.tiers.map((t) => `<li>${t.qty} יח' - ₪${Number(t.price).toFixed(2)}</li>`).join('')}
+      </ul>`
+    : '';
+
   container.innerHTML = `
-    <img src="${product.image}" alt="${escapeHtml(product.name)}" />
+    <div class="product-image-wrap">
+      <img src="${product.image}" alt="${escapeHtml(product.name)}" />
+      ${hasTiers ? '<span class="sale-badge">🔥 מבצע</span>' : ''}
+    </div>
     <div>
       <h1>${escapeHtml(product.name)}</h1>
-      <div class="price">₪${Number(product.price).toFixed(2)}</div>
+      <div class="price">₪${Number(product.price).toFixed(2)} <span class="price-unit">ליחידה</span></div>
+      ${tiersHtml}
       <div class="qty-row">
         <button type="button" id="qty-minus" aria-label="הפחת כמות">-</button>
         <input type="number" id="qty-input" value="1" min="1" step="1" />
         <button type="button" id="qty-plus" aria-label="הוסף כמות">+</button>
       </div>
+      <div id="qty-total" class="qty-total"></div>
       <div class="action-row" id="pre-add-actions">
         <button type="button" class="btn btn-primary" id="add-to-cart-btn">הוסף לעגלה</button>
       </div>
@@ -47,12 +60,23 @@ async function loadProduct() {
   `;
 
   const qtyInput = document.getElementById('qty-input');
+  const qtyTotalEl = document.getElementById('qty-total');
+
+  const updateQtyTotal = () => {
+    const qty = Math.max(1, Math.floor(Number(qtyInput.value)) || 1);
+    qtyTotalEl.textContent = `סה"כ עבור ${qty} יח': ₪${calcLineTotal(product, qty).toFixed(2)}`;
+  };
+  updateQtyTotal();
+
   document.getElementById('qty-minus').addEventListener('click', () => {
     qtyInput.value = Math.max(1, Number(qtyInput.value) - 1);
+    updateQtyTotal();
   });
   document.getElementById('qty-plus').addEventListener('click', () => {
     qtyInput.value = Number(qtyInput.value) + 1;
+    updateQtyTotal();
   });
+  qtyInput.addEventListener('input', updateQtyTotal);
 
   document.getElementById('add-to-cart-btn').addEventListener('click', () => {
     const qty = Math.max(1, Math.floor(Number(qtyInput.value)) || 1);
