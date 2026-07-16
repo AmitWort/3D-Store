@@ -9,16 +9,22 @@ async function loadGallery() {
       return;
     }
     grid.innerHTML = products
-      .map(
-        (p) => `
+      .map((p) => {
+        const hasTiers = Array.isArray(p.tiers) && p.tiers.length > 0;
+        const bestTier = hasTiers ? p.tiers.reduce((a, b) => (b.qty > a.qty ? b : a)) : null;
+        return `
         <a class="product-card" href="product.html?id=${encodeURIComponent(p.id)}">
-          <img src="${p.image}" alt="${escapeHtml(p.name)}" loading="lazy" />
+          <div class="product-image-wrap">
+            <img src="${p.image}" alt="${escapeHtml(p.name)}" loading="lazy" />
+            ${hasTiers ? '<span class="sale-badge">🔥 מבצע</span>' : ''}
+          </div>
           <div class="info">
             <div class="name">${escapeHtml(p.name)}</div>
             <div class="price">₪${Number(p.price).toFixed(2)}</div>
+            ${bestTier ? `<div class="tier-hint">${bestTier.qty} יח' ב-₪${Number(bestTier.price).toFixed(2)}</div>` : ''}
           </div>
-        </a>`
-      )
+        </a>`;
+      })
       .join('');
   } catch (err) {
     empty.textContent = 'שגיאה בטעינת המוצרים, נסו לרענן את הדף.';
