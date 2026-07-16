@@ -39,7 +39,13 @@
     "id": "a64f01bc-93bb-4de6-9e4a-b4fcd9b076a8",
     "name": "קלף כדורגל",
     "price": 3,
-    "image": "images/a64f01bc-93bb-4de6-9e4a-b4fcd9b076a8.jpg"
+    "image": "images/a64f01bc-93bb-4de6-9e4a-b4fcd9b076a8.jpg",
+    "tiers": [
+      {
+        "qty": 2,
+        "price": 5
+      }
+    ]
   },
   {
     "id": "910ee2a4-c384-47d8-a25d-0edd55165a35",
