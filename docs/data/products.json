@@ -49,5 +49,17 @@
     "price": 3,
     "image": "images/841bd833-bf80-4dff-b897-e35abb408574.jpg",
     "tiers": []
+  },
+  {
+    "id": "7992f847-9b81-4fda-af96-1140910ab857",
+    "name": "קליקר גומייה",
+    "price": 7,
+    "image": "images/7992f847-9b81-4fda-af96-1140910ab857.jpg",
+    "tiers": [
+      {
+        "qty": 2,
+        "price": 10
+      }
+    ]
   }
 ]
