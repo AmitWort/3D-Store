@@ -48,11 +48,6 @@
     "name": "קלף של רונלדו",
     "price": 3,
     "image": "images/841bd833-bf80-4dff-b897-e35abb408574.jpg",
-    "tiers": [
-      {
-        "qty": 2,
-        "price": 5
-      }
-    ]
+    "tiers": []
   }
 ]
