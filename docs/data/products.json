@@ -7,9 +7,10 @@
   },
   {
     "id": "e0bb6d6f-28e9-4083-bda9-5db50595c740",
-    "name": "קליקר",
+    "name": "קליקר מפסק",
     "price": 2,
-    "image": "images/e0bb6d6f-28e9-4083-bda9-5db50595c740.jpg"
+    "image": "images/e0bb6d6f-28e9-4083-bda9-5db50595c740.jpg",
+    "tiers": []
   },
   {
     "id": "6f3e2b85-fb5d-4b3b-9c60-38efe2397f6a",
