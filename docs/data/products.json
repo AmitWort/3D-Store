@@ -62,7 +62,12 @@
     "name": "קליקר גומייה",
     "price": 7,
     "image": "images/7992f847-9b81-4fda-af96-1140910ab857.jpg",
-    "tiers": []
+    "tiers": [
+      {
+        "qty": 2,
+        "price": 12
+      }
+    ]
   },
   {
     "id": "3c078862-7c3b-4842-a5f7-fa2d887da21b",
