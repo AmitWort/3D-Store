@@ -68,7 +68,12 @@
     "name": "בועות סבון (ללא סבון)",
     "price": 7,
     "image": "images/3c078862-7c3b-4842-a5f7-fa2d887da21b.jpg",
-    "tiers": []
+    "tiers": [
+      {
+        "qty": 2,
+        "price": 12
+      }
+    ]
   },
   {
     "id": "acae7a0d-c808-4028-90b4-2b5fce3b7733",
