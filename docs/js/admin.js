@@ -19,6 +19,7 @@ function showPanel() {
   document.getElementById('login-section').classList.add('hidden');
   document.getElementById('panel-section').classList.remove('hidden');
   loadAdminProducts();
+  loadMaintenanceStatus();
 }
 
 function showLogin() {
@@ -102,6 +103,64 @@ async function deleteProduct(id) {
       showLogin();
     }
     alert(err.message || 'שגיאה במחיקת המוצר');
+  }
+}
+
+// ---------- מצב תחזוקה ----------
+
+function renderMaintenanceStatus(maintenanceMode) {
+  const statusEl = document.getElementById('maintenance-status');
+  const btnEl = document.getElementById('maintenance-toggle-btn');
+  btnEl.disabled = false;
+  btnEl.dataset.current = maintenanceMode ? '1' : '0';
+  if (maintenanceMode) {
+    statusEl.textContent = '🔴 האתר כרגע בתחזוקה - לקוחות רואים הודעת "נחזור בקרוב".';
+    btnEl.textContent = 'כבה תחזוקה (החזר את החנות לפעילות)';
+    btnEl.className = 'btn btn-primary';
+  } else {
+    statusEl.textContent = '🟢 האתר פעיל כרגיל ללקוחות.';
+    btnEl.textContent = 'הפעל מצב תחזוקה';
+    btnEl.className = 'btn btn-outline';
+  }
+}
+
+async function loadMaintenanceStatus() {
+  try {
+    const res = await fetch('./data/settings.json', { cache: 'no-store' });
+    const settings = res.ok ? await res.json() : {};
+    renderMaintenanceStatus(Boolean(settings.maintenanceMode));
+  } catch {
+    document.getElementById('maintenance-status').textContent = 'שגיאה בבדיקת מצב התחזוקה.';
+  }
+}
+
+async function toggleMaintenance() {
+  const btnEl = document.getElementById('maintenance-toggle-btn');
+  const nextMode = btnEl.dataset.current !== '1';
+  const confirmMsg = nextMode
+    ? 'להפעיל מצב תחזוקה? הלקוחות יראו הודעת "האתר בתחזוקה" במקום החנות.'
+    : 'לכבות מצב תחזוקה ולהחזיר את החנות לפעילות?';
+  if (!confirm(confirmMsg)) return;
+
+  btnEl.disabled = true;
+  btnEl.textContent = 'מעדכן...';
+  try {
+    const res = await fetch(`${WORKER_URL}/admin/maintenance`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token: getAdminToken(), maintenanceMode: nextMode }),
+    });
+    const data = await res.json();
+    if (!res.ok || !data.ok) throw new Error(data.error || 'העדכון נכשל');
+    renderMaintenanceStatus(data.maintenanceMode);
+  } catch (err) {
+    if (err.message && err.message.includes('מחובר')) {
+      clearAdminToken();
+      showLogin();
+      return;
+    }
+    alert(err.message || 'שגיאה בעדכון מצב התחזוקה');
+    loadMaintenanceStatus();
   }
 }
 
@@ -259,6 +318,7 @@ document.addEventListener('DOMContentLoaded', () => {
     clearAdminToken();
     showLogin();
   });
+  document.getElementById('maintenance-toggle-btn').addEventListener('click', toggleMaintenance);
 
   if (getAdminToken()) {
     showPanel();
