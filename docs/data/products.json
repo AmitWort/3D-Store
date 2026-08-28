@@ -78,11 +78,6 @@
     "name": "קליקר דמפלינג",
     "price": 4,
     "image": "images/fe90e535-35fd-4b70-8a41-a2385027430d.jpg",
-    "tiers": [
-      {
-        "qty": 2,
-        "price": 7
-      }
-    ]
+    "tiers": []
   }
 ]
