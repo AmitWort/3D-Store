@@ -79,5 +79,12 @@
     "price": 4,
     "image": "images/fe90e535-35fd-4b70-8a41-a2385027430d.jpg",
     "tiers": []
+  },
+  {
+    "id": "506482d8-d37d-4e14-a507-446aa02edb49",
+    "name": "כלב קטן",
+    "price": 4,
+    "image": "images/506482d8-d37d-4e14-a507-446aa02edb49.jpg",
+    "tiers": []
   }
 ]
