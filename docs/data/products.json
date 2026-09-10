@@ -93,5 +93,17 @@
     "price": 4,
     "image": "images/8ef6d639-ff2e-45b7-af63-a59b13c8c870.jpg",
     "tiers": []
+  },
+  {
+    "id": "153a700a-9028-4085-b2d9-6651de25501e",
+    "name": "סקין מיתקפלת (לא חדה )",
+    "price": 3,
+    "image": "images/153a700a-9028-4085-b2d9-6651de25501e.jpg",
+    "tiers": [
+      {
+        "qty": 2,
+        "price": 5
+      }
+    ]
   }
 ]
