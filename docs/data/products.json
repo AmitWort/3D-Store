@@ -4,7 +4,12 @@
     "name": "מעמד לטלפון",
     "price": 7,
     "image": "images/5e0def43-316d-4e66-8af0-5b3d3b4b67b6.jpg",
-    "tiers": []
+    "tiers": [
+      {
+        "qty": 2,
+        "price": 13
+      }
+    ]
   },
   {
     "id": "e0bb6d6f-28e9-4083-bda9-5db50595c740",
