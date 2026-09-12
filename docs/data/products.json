@@ -121,17 +121,5 @@
         "price": 5
       }
     ]
-  },
-  {
-    "id": "c3c7ccfc-d2d4-4011-b7cc-0ad0625fb854",
-    "name": "סקין מתקפל (לא חדה)",
-    "price": 3,
-    "image": "images/c3c7ccfc-d2d4-4011-b7cc-0ad0625fb854.jpg",
-    "tiers": [
-      {
-        "qty": 2,
-        "price": 5
-      }
-    ]
   }
 ]
