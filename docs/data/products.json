@@ -52,7 +52,12 @@
     "name": "קוביות",
     "price": 3,
     "image": "images/84d62931-0fa4-4888-bcbc-d2a9a77eccfb.jpg",
-    "tiers": []
+    "tiers": [
+      {
+        "qty": 2,
+        "price": 5
+      }
+    ]
   },
   {
     "id": "7c0338ae-ef92-4970-9630-939f37e30938",
