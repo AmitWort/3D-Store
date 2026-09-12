@@ -108,7 +108,12 @@
     "name": "כלב בלון קטן",
     "price": 4,
     "image": "images/8ef6d639-ff2e-45b7-af63-a59b13c8c870.jpg",
-    "tiers": []
+    "tiers": [
+      {
+        "qty": 2,
+        "price": 6
+      }
+    ]
   },
   {
     "id": "153a700a-9028-4085-b2d9-6651de25501e",
