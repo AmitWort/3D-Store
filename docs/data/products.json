@@ -130,5 +130,12 @@
         "price": 5
       }
     ]
+  },
+  {
+    "id": "9c48ea69-8bda-454d-a0e1-432326a46e02",
+    "name": "צב קטן",
+    "price": 1,
+    "image": "images/9c48ea69-8bda-454d-a0e1-432326a46e02.jpg",
+    "tiers": []
   }
 ]
